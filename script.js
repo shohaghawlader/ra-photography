@@ -52,8 +52,6 @@
   const advancePreview = $('#advancePreview');
   const duePreview = $('#duePreview');
   const selectedPackageList = $('#selectedPackageList');
-  let lastPaymentEdit = 'advance';
-
   const formatTaka = amount => `৳${Math.max(0, Math.round(Number(amount) || 0)).toLocaleString('en-IN')}`;
   const getSelectedPackageInputs = () => packageInputs.filter(input => input.checked);
   const getPackageTotal = () => getSelectedPackageInputs().reduce((sum, input) => sum + (Number(input.dataset.price) || 0), 0);
@@ -62,22 +60,14 @@
     if (!input) return;
     input.value = amount > 0 ? String(Math.round(amount)) : '';
   };
-  const updateBookingAmounts = (source = lastPaymentEdit) => {
+  const updateBookingAmounts = () => {
     const total = getPackageTotal();
     const selectedPackages = getSelectedPackageInputs().map(input => input.value);
-    let advance = cleanAmount(advanceAmount?.value);
-    let due = cleanAmount(dueAmount?.value);
+    const advance = Math.ceil(total * 0.5);
+    const due = Math.max(total - advance, 0);
 
-    if (source === 'due') {
-      due = Math.min(due, total);
-      advance = Math.max(total - due, 0);
-      setInputValue(advanceAmount, advance);
-    } else {
-      advance = Math.min(advance, total);
-      due = Math.max(total - advance, 0);
-      setInputValue(dueAmount, due);
-    }
-
+    setInputValue(advanceAmount, advance);
+    setInputValue(dueAmount, due);
     if (totalAmount) totalAmount.textContent = formatTaka(total);
     if (totalAmountInput) totalAmountInput.value = String(total);
     if (advancePreview) advancePreview.textContent = formatTaka(advance);
@@ -86,15 +76,7 @@
   };
 
   packageInputs.forEach(input => {
-    input.addEventListener('change', () => updateBookingAmounts());
-  });
-  advanceAmount?.addEventListener('input', () => {
-    lastPaymentEdit = 'advance';
-    updateBookingAmounts('advance');
-  });
-  dueAmount?.addEventListener('input', () => {
-    lastPaymentEdit = 'due';
-    updateBookingAmounts('due');
+    input.addEventListener('change', updateBookingAmounts);
   });
 
   $$('.choose-package').forEach(button => {
@@ -335,7 +317,7 @@
       return;
     }
 
-    updateBookingAmounts(lastPaymentEdit);
+    updateBookingAmounts();
     const fields = new FormData(bookingForm);
     const total = getPackageTotal();
     const advance = cleanAmount(advanceAmount?.value);
@@ -374,7 +356,7 @@ Advance amount: ${info.advance}
 Due amount: ${info.due}
 Payment with: ${info.payment}
 Message: ${info.message}`;
-    const phone = bookingForm.dataset.whatsapp || '8801921667574';
+    const phone = bookingForm.dataset.whatsapp || '8801679293663';
     if (formNote) formNote.textContent = 'Opening WhatsApp with your booking message…';
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     window.setTimeout(() => { if (formNote) formNote.textContent = 'Your details stay in your browser until you choose to send the WhatsApp message.'; }, 3500);

@@ -233,20 +233,20 @@
 <h2 id="terms-title">Terms <span>&amp;</span> Conditions</h2>
 <div aria-hidden="true" class="terms-rule"><i></i><span>RA Photography</span><i></i></div>
 <ul class="terms-list">
-<li><strong>50% advance payment</strong> is required to confirm a booking.</li>
-<li>The remaining <strong>50%</strong> will be paid on the event day.</li>
-<li>A booking will <strong>not</strong> be reserved without advance payment.</li>
-<li>Booking money is non-refundable. An event may be rescheduled subject to availability, or the booked service may be used later by mutual discussion.</li>
-<li>RA Photography retains the right to use selected photos and videos in its portfolio. Please let us know before the event if you do not want your footage used.</li>
-<li>Every creative team has its own visual style. Please review our portfolio before booking and do not request an output identical to another artist's work.</li>
-<li>Parlour, bashor and outdoor shoots may involve additional charges.</li>
-<li>Final output quality can vary with venue décor, lighting, makeup, available space and on-site cooperation.</li>
-<li>Packages do not include printed copies, DVDs or physical storage. Files are delivered via Google Drive. Pendrive delivery is available only if the client provides a pendrive.</li>
-<li>All edited pictures and videos include the RA Photography logo.</li>
-<li>Please discuss any special requirement before placing a booking.</li>
-<li>Transportation and accommodation charges apply according to the location for events outside the Dhaka metropolitan area.</li>
-<li>In an unsafe, abusive or seriously uncomfortable situation, our team may stop shooting and leave immediately; payments will not be refunded.</li>
-<li>Clients are requested to read and discuss all terms and conditions before hiring.</li>
+<li><strong>Booking Confirmation:</strong> A booking is confirmed only after a 50% advance payment has been received. The remaining 50% must be paid according to the agreed payment schedule.</li>
+<li><strong>Advance Payment:</strong> The booking fee is non-refundable unless the event is cancelled by RA Photography.</li>
+<li><strong>Balance Payment:</strong> The remaining balance must be paid on or before the event day. Final edited photos and videos will be delivered only after full payment has been received.</li>
+<li><strong>Rescheduling:</strong> Clients may reschedule the booking once, subject to availability and prior notice.</li>
+<li><strong>Cancellation:</strong> If the client cancels the booking, the advance payment will not be refunded.</li>
+<li><strong>Coverage Time:</strong> Each package includes the agreed coverage hours. Any additional coverage time will be charged separately.</li>
+<li><strong>Delivery Time:</strong> Edited photos and videos will be delivered within the agreed timeframe after the event.</li>
+<li><strong>Editing:</strong> All photos and videos will be professionally edited in RA Photography's signature style. Raw or unedited files are not included unless agreed in writing.</li>
+<li><strong>Copyright:</strong> All photographs and videos remain the copyright of RA Photography. Clients receive personal-use rights unless otherwise agreed in writing.</li>
+<li><strong>Client Cooperation:</strong> RA Photography is not responsible for missed shots caused by late arrivals, schedule changes, venue restrictions, or a lack of cooperation from the client, guests, or event staff.</li>
+<li><strong>Force Majeure:</strong> RA Photography is not liable for delays, interruptions, or cancellations caused by circumstances beyond reasonable control, including natural disasters, illness, government restrictions, or technical failures.</li>
+<li><strong>Creative Rights:</strong> RA Photography may use selected photos and videos for its portfolio, website, and social media unless the client requests privacy before the event.</li>
+<li><strong>Equipment Failure:</strong> In the unlikely event of equipment failure or other unforeseen circumstances, every reasonable effort will be made to arrange a suitable replacement or provide an appropriate solution.</li>
+<li><strong>Acceptance:</strong> By making a booking and paying the advance, the client confirms that they have read, understood, and agreed to these Terms &amp; Conditions.</li>
 </ul>
 <p class="terms-note">By confirming your booking, you acknowledge these service terms.</p>
 </div>
@@ -350,10 +350,10 @@
 <p class="eyebrow light"><span></span>Reserve your date</p>
 <h2>Let’s frame<br/>your <em>forever.</em></h2>
 <p>Tell us the date, place and your preferred package. WhatsApp will open with your complete message ready to review and send.</p>
-<div class="booking-contact"><span>WHATSAPP FOR BOOKINGS</span><strong>+880 1921-667574</strong><small>Available for date availability, package questions and booking confirmation.</small></div>
+<div class="booking-contact"><span>WHATSAPP FOR BOOKINGS</span><strong>+880 1679-293663</strong><small>Available for date availability, package questions and booking confirmation.</small></div>
 </div>
   <div id="booking">
-<form class="booking-form reveal delay-1" data-whatsapp="8801921667574" id="bookingForm">
+<form class="booking-form reveal delay-1" data-whatsapp="8801679293663" id="bookingForm">
 <div class="form-row"><label>Full name<input name="name" placeholder="Your name" required="" type="text"/></label><label>Phone number<input name="phone" placeholder="01XXXXXXXXX" required="" type="tel"/></label></div>
 <div class="form-row"><label>Bride name<input name="brideName" placeholder="Bride name" required="" type="text"/></label><label>Groom name<input name="groomName" placeholder="Groom name" required="" type="text"/></label></div>
 <div class="form-row"><label>Event type<select name="eventType" required=""><option value="">Select event type</option><option>Holud</option><option>Wedding</option><option>Reception</option><option>Holud + Wedding</option><option>Holud + Wedding + Reception</option><option>Couple Session</option><option>Hindu Wedding</option></select></label><label>Event date<input id="eventDate" name="eventDate" required="" type="date"/></label></div>
@@ -393,7 +393,7 @@
 <div><span>Due</span><strong id="duePreview">৳0</strong></div>
 </div>
 <input id="totalAmountInput" name="totalAmount" type="hidden" value="0"/>
-<div class="form-row"><label>Advance amount<input id="advanceAmount" min="0" name="advanceAmount" placeholder="0" step="1" type="number"/></label><label>Due amount<input id="dueAmount" min="0" name="dueAmount" placeholder="0" step="1" type="number"/></label></div>
+<div class="form-row"><label>Advance amount (50%)<input id="advanceAmount" min="0" name="advanceAmount" placeholder="0" readonly="" step="1" type="number"/></label><label>Due amount (50%)<input id="dueAmount" min="0" name="dueAmount" placeholder="0" readonly="" step="1" type="number"/></label></div>
 <label>Payment with<select id="paymentMethod" name="paymentMethod" required=""><option value="">Select payment method</option><option>bKash</option><option>Nagad</option><option>Rocket</option><option>Bank</option><option>Cash</option></select></label>
 <label>Message / requirements<textarea name="message" placeholder="Tell us about your timing, number of events or any special requirement..." rows="4"></textarea></label>
 <button class="button button-booking" type="submit">Continue in WhatsApp <span aria-hidden="true">↗</span></button>
@@ -407,7 +407,12 @@
 <div class="shell footer-layout">
 <div><a aria-label="RA Photography home" class="brand footer-brand" href="#home"><span class="brand-wordmark"><strong>RA</strong><b>PHOTOGRAPHY</b></span><span class="brand-type">WEDDING FILMS &amp; PHOTOGRAPHY</span></a><p>Photographing celebration. Filming feeling. Keeping the moments that become part of your life.</p></div>
 <div><h3>Explore</h3><a href="#pricing">Pricing</a><a href="#stories">Stories</a><a href="#films">Films</a><a href="#gallery">Gallery</a></div>
-<div><h3>Connect</h3><a href="https://wa.me/8801921667574" rel="noopener" target="_blank">WhatsApp: +880 1921-667574</a><span>Facebook: RA Photography</span><span>Service area: Bangladesh</span></div>
+<div><h3>Connect</h3>
+<a href="https://wa.me/8801679293663" rel="noopener" target="_blank">WhatsApp: +880 1679-293663</a>
+<a href="mailto:raphotography87@gmail.com">raphotography87@gmail.com</a>
+<a href="https://www.facebook.com/RAPhotographyClick" rel="noopener" target="_blank">Facebook: RA Photography</a>
+<a href="https://www.instagram.com/raphotography77" rel="noopener" target="_blank">Instagram: @raphotography77</a>
+<span>Service area: Bangladesh</span></div>
 </div>
 <div class="shell footer-bottom"><span>© <span id="year"></span> RA Photography. All rights reserved.</span><span>Made for meaningful celebrations.</span></div>
 </footer>
